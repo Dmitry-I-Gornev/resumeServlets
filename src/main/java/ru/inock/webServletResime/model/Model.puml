@@ -1,0 +1,119 @@
+@startuml
+Class Resume implements Comparable{
+Map <ContactType,String> contacts
+Map <SectionType,Section> sections
+String uuid
+String fullName
+--
+String getUuid()
+String getFullName()
+--
+@Override
+int compareTo(Resume r)
+boolean equals()
+int hashCode()
+String toString()
+}
+
+enum ContactType {
+PHONE("Тел."),
+MOBILE("Мобильный"),
+HOME_PHONE("Домашний тел."),
+SKYPE("Skype"),
+MAIL("Почта"),
+LINKEDIN("Профиль LinkedIn"),
+GITHUB("Профиль GitHub"),
+STACKOVERFLOW("Профиль Stackoverflow"),
+HOMEPAGE("Домашняя страница")
+--
+String getTitle()
+void addContact(ContactType type, String value)
+}
+Resume *- ContactType
+
+enum SectionType {
+personal("Личные качества"),
+objective("Позиция"),
+arhievement("Достижения"),
+qualification("Квалификация"),
+experience("Опыт работы"),
+education("Образование")
+--
+String getTitle()
+}
+Resume *- SectionType
+
+abstract class Section{
+}
+Resume *- Section
+
+class OrganisationSection extends Section{
+List<Organisation> organizations
+List getOrganizations()
+}
+OrganisationSection *- Organisation
+
+class TextSection extends Section{
+String content
+boolean equals()
+int hashCode()
+String toString()
+}
+together {
+object personal
+object objective
+}
+personal -> TextSection
+objective -> TextSection
+
+
+class ListSection extends Section{
+List<String> items
+List<String> getItems()
+String toString()
+boolean equals()
+int hashCode()
+}
+together {
+object arhievement
+object qualification
+}
+arhievement -> ListSection
+qualification -> ListSection
+
+
+class Link{
+String name
+String url
+String getName()
+String getUrl()
+boolean equals()
+int hashCode()
+String toString()
+}
+Link *- Organisation
+
+class Organisation {
+Link homePage
+final String title
+String description
+List WorkPeriod
+boolean equals()
+int hashCode()
+String toString()
+}
+
+together {
+object experience
+object education
+}
+experience -> Organisation
+education -> Organisation
+
+class WorkPeriod{
+LocalDate startDate
+LocalDate endDate
+String description
+}
+WorkPeriod *- Organisation
+@enduml
