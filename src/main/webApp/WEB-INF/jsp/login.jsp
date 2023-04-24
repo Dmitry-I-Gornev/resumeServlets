@@ -21,8 +21,12 @@
     <input type="hidden" name="section" value="LogIn">
    LogIn: <input type="text" title="LogIn" placeholder="LogIn" size="20"
            maxlength="50" name="LogIn" value=""    /><br>
-    Passowrd: <input name="userPassword" type="password"><br>
+    Password: <input name="userPassword" type="password"><br>
     <input type="submit">
-
 </form>
+
+<p>Для тестового входа используйте<br>
+    пару логин:пароль -
+    user:user</p>
+
 <%@ include file="footer.jsp" %>

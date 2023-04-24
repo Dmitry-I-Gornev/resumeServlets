@@ -54,7 +54,7 @@
 </p>
 
 <p>
-    <a href="source.zip">Исходный кодом</a>
+    <a href="https://github.com/Dmitry-I-Gornev/resumeServlets">Исходный кодом</a>
 </p>
 
 <c:set var="result" scope="page" value="${result}"/>

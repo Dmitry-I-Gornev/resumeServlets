@@ -78,37 +78,28 @@ public class UploadServlet extends HttpServlet {
 
                 output.close();
                 input.close();
+                fileResume.delete();
             }
         }
 
 
-//            response.sendRedirect("/resume&uuid=" + r.getUuid());
 
-            //System.out.println(fileResume.toAbsolutePath());
-
-            /*final String TOMCAT_SENDFILE_FILENAME = "org.apache.tomcat.sendfile.filename";
-            final String TOMCAT_SENDFILE_START = "org.apache.tomcat.sendfile.start";
-            final String TOMCAT_SENDFILE_END = "org.apache.tomcat.sendfile.end";
-            response.setBufferSize(1 << 18);
-            request.setAttribute(TOMCAT_SENDFILE_FILENAME, fileResume.);
-            request.setAttribute(TOMCAT_SENDFILE_START, Long.valueOf(0));
-            request.setAttribute(TOMCAT_SENDFILE_END, Long.valueOf(Files.size(fileResume)));*/
         }
 
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //String description = request.getParameter("description"); // Retrieves <input type="text" name="description">
-        Part filePart = request.getPart("fileResume"); // Retrieves <input type="file" name="file">
-        //String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
+        //String description = request.getParameter("description");
+        //Retrieves <input type="text" name="description">
+        Part filePart = request.getPart("fileResume");
+        // Retrieves <input type="file" name="file">
+        //String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+        // MSIE fix.
         InputStream fileContent = filePart.getInputStream();
         r = streamSerializable.doReade(fileContent);
-        System.out.println(r.toString());
         SQL_STORAGE.save(r);
         response.sendRedirect("resume?uuid=" + r.getUuid());
-
-        // ... (do your job here)
     }
 
 
