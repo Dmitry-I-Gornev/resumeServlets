@@ -10,3 +10,7 @@
 - [ ] Web-socets
 
 [A demo version of the app can be found here](https://apps.inock.ru/Resumes/)
+
+***
+
+github@inock.ru
