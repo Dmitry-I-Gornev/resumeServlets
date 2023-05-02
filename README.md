@@ -7,7 +7,7 @@
 - [x] Json & XML
 - [ ] Frontend (frontend is implemented in the project at the most primitive level solely for the purpose of demonstrating the functions of the backend)
 - [ ] Spring
-- [ ] Web-socets
+- [ ] WebSocket
 
 [A demo version of the app can be found here](https://apps.inock.ru/Resumes/)
 
