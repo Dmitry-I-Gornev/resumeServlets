@@ -54,7 +54,7 @@
 </p>
 
 <p>
-    <a href="https://github.com/Dmitry-I-Gornev/resumeServlets">Исходный кодом</a>
+    <a href="https://github.com/Dmitry-I-Gornev/resumeServlets">Исходный код</a> (GitHub)
 </p>
 
 <c:set var="result" scope="page" value="${result}"/>
